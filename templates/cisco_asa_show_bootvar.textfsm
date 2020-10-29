@@ -1,0 +1,12 @@
+Value BOOT_PATH (\S+)
+Value CURRENT_BOOT_PATH (\S+)
+Value CONFIG_FILE (.*|$)
+Value CURRENT_CONFIG_FILE (.*|$)
+
+Start
+  ^BOOT\svariable\s+=\s+${BOOT_PATH}
+  ^Current\sBOOT\svariable\s+=\s+${CURRENT_BOOT_PATH}
+  ^CONFIG_FILE\s+variable\s+=\s+${CONFIG_FILE}
+  ^Current\sCONFIG_FILE\s+variable\s+=\s+${CURRENT_CONFIG_FILE}
+  ^\s*$$
+  ^. -> Error
